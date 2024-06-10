@@ -94,19 +94,25 @@ public class ActaDeNotas {
 
             reporteFinal[0] = new Object[] {
                     "Matricula Inicial", "Matricula efectiva", "Numero de deserciones", "Cantidad de aprobados",
-                    "% de aprobados", "Cantidad de reprobados", "% de reprobados", "Nota Minima", "Nota Maxima",
-                    "Promedio de notas"
+                    "% de aprobados", "Cantidad de reprobados", "% de reprobados", "Nota Minima [N.F.]", "Nota Maxima[N.F.]",
+                    "Promedio de notas[N.F.]"
             };
+            //Revisado
             int matricula = cantidadEstudiantes;
-            int matriculaEfectiva = alcularMatriculaEfectiva(datosEstudiantes, cantidadEstudiantes);
+            int matriculaEfectiva = calcularMatriculaEfectiva(datosEstudiantes, cantidadEstudiantes);
             int numeroDeserciones = cantidadEstudiantes - matriculaEfectiva;
+            //
+            
             int cantidadAprobados = calcularCantidadAprobados(datosEstudiantes, cantidadEstudiantes);
-            double porcentajeAprobados = (double) cantidadAprobados / matriculaEfectiva * 100;
-            int cantidadReprobados = matriculaEfectiva - cantidadAprobados;
+            //
+            double porcentajeAprobados = (double) cantidadAprobados / cantidadEstudiantes * 100;
+            
+            int cantidadReprobados = cantidadEstudiantes - cantidadAprobados;
             double porcentajeReprobados = 100 - porcentajeAprobados;
-
+            //
             int notaMinima = (int) datosEstudiantes[1][6];
             int notaMaxima = (int) datosEstudiantes[cantidadEstudiantes][6];
+            
             double promedioDeNotas = calcularPromedioNotas(datosEstudiantes, cantidadEstudiantes);
 
             reporteFinal[1] = new Object[] { matricula, matriculaEfectiva, numeroDeserciones, cantidadAprobados,
@@ -116,6 +122,7 @@ public class ActaDeNotas {
             System.out.println("Reporte");
             System.out.println(
                     "+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+");
+                    /*
             for (int i = 0; i < reporteFinal.length; i++) {
                 System.out.printf(
                         "|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|\n",
@@ -124,8 +131,21 @@ public class ActaDeNotas {
                         reporteFinal[i][8], reporteFinal[i][9]);
                 System.out.println(
                         "+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+");
-            }
-
+            }*/
+            
+            
+                        System.out.println(reporteFinal[0][0] + ": "+ reporteFinal[1][0]);
+                        System.out.println(reporteFinal[0][1] + ": "+ reporteFinal[1][1]);
+                        System.out.println(reporteFinal[0][2] + ": "+ reporteFinal[1][2]);
+                        System.out.println(reporteFinal[0][3]  + ": "+ reporteFinal[1][3]);
+                        System.out.println(reporteFinal[0][4] + ": "+ reporteFinal[1][4]);
+                        System.out.println(reporteFinal[0][5] + ": "+ reporteFinal[1][5]);
+                        System.out.println(reporteFinal[0][6] + ": "+ reporteFinal[1][6]);
+                        System.out.println(reporteFinal[0][7] + ": "+ reporteFinal[1][7]);
+                        System.out.println(reporteFinal[0][8] + ": "+ reporteFinal[1][8]);
+                        System.out.println(reporteFinal[0][9] + ": "+ reporteFinal[1][9]);
+            
+                        
             for (int i = 0; i < datosEstudiantes.length; i++) {
                 System.out.printf(
                         "|%-10s|%-30s|%-5s|%-5s|%-5s|%-5s|%-5s|%-15s|%-12s|%-10s|%-7s|%-10s|\n",
@@ -164,7 +184,8 @@ public class ActaDeNotas {
         return cantidadAprobados;
     }
 
-    private static int alcularMatriculaEfectiva(Object[][] datosEstudiantes, int cantidadEstudiantes) {
+
+    private static int calcularMatriculaEfectiva(Object[][] datosEstudiantes, int cantidadEstudiantes) {
         int matriculaEfectiva = cantidadEstudiantes;
         for (int i = 1; i <= cantidadEstudiantes; i++) {
             if (((String) datosEstudiantes[i][11]).equalsIgnoreCase("SI")) {
@@ -173,6 +194,7 @@ public class ActaDeNotas {
         }
         return matriculaEfectiva;
     }
+
 
     private static boolean proyecto(Scanner scanner) {
         Boolean exists;
