@@ -4,9 +4,12 @@ import java.util.Scanner;
 public class ActaDeNotas {
 
     public static void main(String[] args) {
-
-        try (Scanner scanner = new Scanner(System.in)) {
-
+          boolean seguirUsando = true;
+          Scanner scanner = new Scanner(System.in);
+          while(seguirUsando){
+        try{
+            
+            
             System.out.print("Ingrese la cantidad de estudiantes: ");
             int cantidadEstudiantes = (int) solicitarInt(scanner, "Cantidad de estudiantes", 1, 33);
             scanner.nextLine();
@@ -144,12 +147,16 @@ public class ActaDeNotas {
                         "+----------+------------------------------+-----+-----+-----+-----+-----+---------------+------------+----------+-------+----------+");
 
             }
+            
+           seguirUsando= usarPreguntar(scanner);
+            
+          
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-
+      }
+      scanner.close();
     }
-
     private static double calcularPromedioNotas(Object[][] datosEstudiantes, int cantidadEstudiantes) {
         double promedioDeNotas = 0;
         for (int i = 1; i <= cantidadEstudiantes; i++) {
@@ -182,7 +189,6 @@ public class ActaDeNotas {
         return matriculaEfectiva;
     }
 
-
     private static boolean proyecto(Scanner scanner) {
         Boolean exists;
 
@@ -196,7 +202,7 @@ public class ActaDeNotas {
         return exists;
     }
 
-    private static double solicitarInt(Scanner scanner, String mensaje, int min, int max) {
+    private static int solicitarInt(Scanner scanner, String mensaje, int min, int max) {
         int valor = 0;
         while (true) {
             try {
@@ -264,4 +270,8 @@ public class ActaDeNotas {
         }
     }
 
-}
+    private static boolean usarPreguntar(Scanner scanner){
+      int respuesta= solicitarInt(scanner, "Seleccione: \n 1. Usar de nuevo. \n 2. Terminar el programa", 1, 2);
+      return respuesta !=2;
+      }
+    }
