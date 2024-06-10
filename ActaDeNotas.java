@@ -93,9 +93,9 @@ public class ActaDeNotas {
             Object[][] reporteFinal = new Object[2][10];
 
             reporteFinal[0] = new Object[] {
-                    "Matricula Inicial", "Matricula efectiva", "Numero de deserciones", "Cantidad de aprobados",
-                    "% de aprobados", "Cantidad de reprobados", "% de reprobados", "Nota Minima [N.F.]", "Nota Maxima[N.F.]",
-                    "Promedio de notas[N.F.]"
+                    "Matricula Ini.", "Matricula efect.", "Num. de deserciones", "Cant. de aprob",
+                    "% de aprob.", "Cantidad de reprob", "% de reprob", "Nota Min[N.F.]", "Nota Max[N.F.]",
+                    "Prom. notas[N.F.]"
             };
             //Revisado
             int matricula = cantidadEstudiantes;
@@ -133,20 +133,17 @@ public class ActaDeNotas {
                         "+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+");
             }
             
-            
-                        System.out.println(reporteFinal[0][0] + ": "+ reporteFinal[1][0]);
-                        System.out.println(reporteFinal[0][1] + ": "+ reporteFinal[1][1]);
-                        System.out.println(reporteFinal[0][2] + ": "+ reporteFinal[1][2]);
-                        System.out.println(reporteFinal[0][3]  + ": "+ reporteFinal[1][3]);
-                        System.out.println(reporteFinal[0][4] + ": "+ reporteFinal[1][4]);
-                        System.out.println(reporteFinal[0][5] + ": "+ reporteFinal[1][5]);
-                        System.out.println(reporteFinal[0][6] + ": "+ reporteFinal[1][6]);
-                        System.out.println(reporteFinal[0][7] + ": "+ reporteFinal[1][7]);
-                        System.out.println(reporteFinal[0][8] + ": "+ reporteFinal[1][8]);
-                        System.out.println(reporteFinal[0][9] + ": "+ reporteFinal[1][9]);
-            
-                        
-            
+            for (int i = 0; i < datosEstudiantes.length; i++) {
+                System.out.printf(
+                        "|%-10s|%-30s|%-5s|%-5s|%-5s|%-5s|%-5s|%-15s|%-12s|%-10s|%-7s|%-10s|\n",
+                        datosEstudiantes[i][0], datosEstudiantes[i][1], datosEstudiantes[i][2], datosEstudiantes[i][3],
+                        datosEstudiantes[i][4], datosEstudiantes[i][5], datosEstudiantes[i][6], datosEstudiantes[i][7],
+                        datosEstudiantes[i][8], datosEstudiantes[i][9], datosEstudiantes[i][10],
+                        datosEstudiantes[i][11]);
+                System.out.println(
+                        "+----------+------------------------------+-----+-----+-----+-----+-----+---------------+------------+----------+-------+----------+");
+
+            }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
