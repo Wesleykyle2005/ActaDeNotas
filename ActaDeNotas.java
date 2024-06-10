@@ -122,7 +122,7 @@ public class ActaDeNotas {
             System.out.println("Reporte");
             System.out.println(
                     "+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+");
-                    /*
+                    
             for (int i = 0; i < reporteFinal.length; i++) {
                 System.out.printf(
                         "|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|\n",
@@ -131,7 +131,7 @@ public class ActaDeNotas {
                         reporteFinal[i][8], reporteFinal[i][9]);
                 System.out.println(
                         "+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+");
-            }*/
+            }
             
             
                         System.out.println(reporteFinal[0][0] + ": "+ reporteFinal[1][0]);
@@ -146,17 +146,7 @@ public class ActaDeNotas {
                         System.out.println(reporteFinal[0][9] + ": "+ reporteFinal[1][9]);
             
                         
-            for (int i = 0; i < datosEstudiantes.length; i++) {
-                System.out.printf(
-                        "|%-10s|%-30s|%-5s|%-5s|%-5s|%-5s|%-5s|%-15s|%-12s|%-10s|%-7s|%-10s|\n",
-                        datosEstudiantes[i][0], datosEstudiantes[i][1], datosEstudiantes[i][2], datosEstudiantes[i][3],
-                        datosEstudiantes[i][4], datosEstudiantes[i][5], datosEstudiantes[i][6], datosEstudiantes[i][7],
-                        datosEstudiantes[i][8], datosEstudiantes[i][9], datosEstudiantes[i][10],
-                        datosEstudiantes[i][11]);
-                System.out.println(
-                        "+----------+------------------------------+-----+-----+-----+-----+-----+---------------+------------+----------+-------+----------+");
-
-            }
+            
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
